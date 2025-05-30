@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>SOP PENAHANAN - Polisi KotakuV3</title>
+    <style>
+        :root {
+            --primary-color: #1f2937;
+            --secondary-color: #3b82f6;
+            --danger-color: #dc2626;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --light-color: #f9fafb;
+            --dark-color: #111827;
+        }
+        
+        body {
+            background-image: url('home.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 3px;
+        }
+
+        .container button {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            font-size: 14px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            margin-right: 10px;
+        }
+        
+        .container button:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .button-reset {
+            background-color: var(--danger-color) !important;
+        }
+        
+        .button-denda {
+            background-color: var(--success-color) !important;
+        }
+        
+        .button-tahanan {
+            background-color: var(--warning-color) !important;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .hartabenda {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .senjata {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .keamanan {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .narkoba {
+            background-color: #e2e3e5;
+            color: #383d41;
+        }
+        
+        .aparatur {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .uangmerah {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .terorisme {
+            background-color: #f5c6cb;
+            color: #721c24;
+        }
+        
+        #summary-container {
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            display: none;
+        }
+        
+        #summary-table th, #summary-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        #summary-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 12px 45px 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #searchInput:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 18px;
+            pointer-events: none;
+        }
+        
+        .checkbox {
+            transform: scale(1.5);
+            cursor: pointer;
+            accent-color: var(--secondary-color);
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background: var(--primary-color);
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            padding: 0.75rem 2rem;
+            margin: 20px auto;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            padding: 0.75rem 1.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            border-radius: 0.5rem;
+        }
+
+        .nav-link a {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo span {
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Additional Utility Classes */
+        .text-left {
+            text-align: left !important;
+        }
+        
+        .text-center {
+            text-align: center !important;
+        }
+        
+        .text-right {
+            text-align: right !important;
+        }
+        
+        .bold {
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background-color: rgba(255, 255, 0, 0.3);
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            transform: scale(0.7);
+            animation: popUp 0.4s ease-in-out forwards;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #888;
+            transition: all 0.2s ease;
+        }
+        
+        .close:hover {
+            color: var(--danger-color);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            margin-top: 20px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes popUp {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Dropdown Menu SOP */
+        .sop-link {
+            position: relative;
+        }
+        
+        .sop-link .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-width: 200px;
+            display: none;
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .sop-link:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu a {
+            color: #333;
+            padding: 10px 15px;
+            display: block;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: all 0.2s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5;
+            color: #2c3e50;
+        }
+        
+        .dropdown-menu a i {
+            margin-right: 8px;
+            color: #7f8c8d;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sop-link .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                display: none;
+                opacity: 1;
+                transform: none;
+                border-top: 1px solid #eee;
+            }
+            
+            .sop-link:hover .dropdown-menu {
+                display: none;
+            }
+            
+            .sop-link.active .dropdown-menu {
+                display: block;
+            }
+        }
+
+        .signature {
+        margin-top: 50px;
+        text-align: left;
+        line-height: 1.8;
+        font-size: 1rem;
+        font-family: 'Georgia', serif;
+        color: #333;
+        }
+
+        .signature strong {
+        font-size: 1.2rem;
+        }
+
+        .signature em {
+        font-style: italic;
+        color: #555;
+        }
+
+        .procedure-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.procedure-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+.step {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-left: 5px solid #3498db;
+  border-radius: 8px;
+}
+
+.step h4 {
+  color: #2980b9;
+  margin-bottom: 10px;
+}
+
+.step p,
+.step ul {
+  color: #333;
+  font-size: 15px;
+}
+
+.step ul {
+  padding-left: 20px;
+}
+
+.step ul li {
+  margin-bottom: 8px;
+}
+
+    </style>
+</head>
+<body>
+        <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <span>Polisi KotakuV3</span>
+        </div>
+        
+                    <ul class="nav-links">
+                        <li class="nav-link">
+                            <a href="beranda.html">
+                                <i class="fas fa-home"></i> Beranda
+                            </a>
+                        </li>
+                            <li class="nav-link sop-link">
+                            <a href="#">
+                                <i class="fas fa-file-alt"></i> SOP
+                                <i class="fas fa-chevron-down" style="margin-left: 5px; font-size: 12px;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="sop-penilangan.html"><i class="fas fa-traffic-light"></i> SOP Penilangan</a>
+                                <a href="sop-impound.html"><i class="fas fa-car"></i> SOP Impound</a>
+                                <a href="sop-penahanan.html"><i class="fas fa-handcuffs"></i> SOP Penahanan</a>
+                            </div>
+                        </li>
+                        <li class="nav-link sop-link">
+                            <a href="#">
+                                <i class="fas fa-file-alt"></i> STRUKTUR
+                                <i class="fas fa-chevron-down" style="margin-left: 5px; font-size: 12px;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="struktur-pangkat.html"><i class="fas fa-traffic-light"></i> Struktur Pangkat</a>
+                                <a href="struktur-jabatan.html"><i class="fas fa-car"></i> Struktur Jabatan</a>
+                            </div>
+                        <li class="nav-link" id="contactBtn">
+                            <a href="#">
+                                <i class="fas fa-address-book"></i> Kontak
+                            </a>
+                        </li>
+                        <!-- Tambahan Logout -->
+                        <li class="nav-link" id="logoutBtn">
+                        <a href="#">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </li>
+        </ul>
+    </nav>
+        <div class="container">
+        <h1><i class="fas fa-file-alt"></i> SOP PENAHANAN - Polisi KotakuV3 2025</h1>
+        <h2></h2>
+             
+        <div class="procedure-container">
+  <h2>📋 Prosedur Penangkapan & Pemenjaraan Suspect</h2>
+
+  <div class="step">
+    <h4>1. Penangkapan Awal</h4>
+    <p>Suspect yang telah terbukti melakukan pelanggaran ditangkap, dibawa ke unit, lalu dikawal menuju markas Federal untuk dilakukan penggeledahan serta pemeriksaan lanjutan.</p>
+  </div>
+
+  <div class="step">
+    <h4>2. Tindakan Saat Tiba di Federal</h4>
+    <ul>
+      <li>Suspect diarahkan menghadap tembok dan mengangkat tangan (jika tidak diborgol).</li>
+      <li>Petugas menanyakan identitas suspect: nama lengkap dan menunjukkan kartu identitas.</li>
+      <li>Petugas memotret wajah suspect serta dokumentasi KTP atau identitas lain.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h4>3. Pemeriksaan Barang & Senjata</h4>
+    <ul>
+      <li>Petugas melakukan pemeriksaan tas (inventory) dan pengecekan senjata.</li>
+      <li><strong>📸 Screenshot:</strong> Isi tas difoto sebagai bukti dan dicatat dalam catatan kriminal.</li>
+      <li><strong>📸 Screenshot:</strong> Senjata juga difoto sebagai barang bukti untuk keperluan penuntutan jika diperlukan.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h4>4. Penyitaan Barang Bukti</h4>
+    <ul>
+      <li>Seluruh isi tas/inventory disita.</li>
+      <li>Senjata disita melalui panel faction (tekan <strong>H</strong>).</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h4>5. Penjatuhan Hukuman</h4>
+    <ul>
+      <li>Petugas memberikan <strong>invoice</strong> sesuai pasal pelanggaran yang berlaku di undang-undang kota.</li>
+      <li>Petugas memberikan <strong>personal charges</strong> melalui MDT (Mobile Data Terminal).</li>
+      <li>Setelah data lengkap, suspect langsung dijebloskan ke penjara melalui faction menu (<strong>H</strong>).</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h4>6. Dokumentasi & Penutupan</h4>
+    <ul>
+      <li>Foto wajah, identitas, dan barang bukti dicatat di situs <strong>Catatan Kriminal</strong> Kotaku.</li>
+      <li>Seluruh barang sitaan dimasukkan ke <strong>Brankas Kepolisian</strong> (/vault).</li>
+    </ul>
+  </div>
+</div>
+
+
+
+        <!-- Contact Button -->
+    <div class="contact-button" id="contactBtn">
+        <i class="fas fa-info-circle"></i>
+    </div>
+    
+<!-- Contact Modal -->
+<div class="modal" id="contactModal">
+    <div class="modal-content animate-pop">
+        <span class="close">&times;</span>
+        <h2><i class="fas fa-info-circle"></i> Tentang Pembuat</h2>
+        <div class="modal-body">
+            <div class="profile-section">
+                <img src="mario.png" alt="Foto Profil" class="profile-pic">
+                <h3>Mariono Senopati</h3>
+                <p><i class="fab fa-discord"></i> <strong>Discord:</strong> itsmario0</p>
+                <p><i class="fas fa-calendar-alt"></i> <strong>Dibuat pada:</strong> 10 Mei 2025</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> Kaming SUn!</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/rfatrzy/" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@itsmario192" target="_blank" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Modal Content Animation */
+.animate-pop {
+    animation: pop 0.4s ease-out;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Profile Section */
+.profile-section {
+    text-align: center;
+    padding: 10px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #3085d6;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    margin: 0 8px;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #3085d6;
+}
+
+/* Modal Basic Styling */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+</style>
+  
+<script>
+        // Modal functionality
+        const contactBtn = document.getElementById('contactBtn');
+        const contactModal = document.getElementById('contactModal');
+        const closeBtn = document.querySelector('.close');
+        
+        contactBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            contactModal.style.display = 'flex';
+        });
+        
+        closeBtn.addEventListener('click', function() {
+            contactModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', function(e) {
+            if (e.target === contactModal) {
+                contactModal.style.display = 'none';
+            }
+        });
+
+        // Untuk tampilan mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const sopLink = document.querySelector('.sop-link');
+            
+            if (window.innerWidth <= 768) {
+                sopLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                });
+            }
+        });
+</script>
+</body>
