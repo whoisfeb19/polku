@@ -1,0 +1,17 @@
+name: Kirim Notif ke Discord
+
+on:
+  push:
+    branches:
+      - main  # Ubah jika kamu pakai branch lain
+
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kirim pesan ke Discord
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "{\"content\": \"📢 Repository \`${{ github.repository }}\` telah diperbarui!\n🔧 Branch: \`${{ github.ref_name }}\`\n✍️ Oleh: \`${{ github.actor }}\`\n🔗 [Lihat Commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})\"}" \
+               ${{ secrets.DISCORD_WEBHOOK }}
