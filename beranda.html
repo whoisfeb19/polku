@@ -1310,14 +1310,9 @@
       <option value="Tidak Ada">Tidak Ada</option>
     </select>
 
-    <!-- INPUT FILE TERINTEGRASI DI DALAM MODAL -->
-    <label>UPLOAD FOTO:</label>
-    <input type="file" id="fotoFile" accept="image/*">
-    <span id="fotoFileName" style="margin-left:10px; color: #fff;"></span>
-
     <div id="previewContainer" style="display: none; margin-top: 20px; padding: 15px; background: #2f3136; border-radius: 5px; max-height: 300px; overflow-y: auto;">
-      <h3 style="margin-top: 0; color: white;">PREVIEW PESAN DISCORD</h3>
-      <pre id="previewContent" style="white-space: pre-wrap; word-wrap: break-word; margin: 0; color: white;"></pre>
+    <h3 style="margin-top: 0; color: white;">PREVIEW PESAN DISCORD</h3>
+    <pre id="previewContent" style="white-space: pre-wrap; word-wrap: break-word; margin: 0; color: white;"></pre>
     </div>
 
     <div class="button-group">
@@ -1327,100 +1322,6 @@
     </div>
   </div>
 </div>
-
-<script>
-// Ganti dengan webhook Discord Anda
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/WEBHOOK_ID/WEBHOOK_TOKEN';
-
-function tampilkanPreview() {
-  const namaSuspect = document.getElementById('namaSuspect').value;
-  const namaPetugas = document.getElementById('namaPetugas').value;
-  const idCard = document.getElementById('idCard').value;
-  const foto = document.getElementById('foto').value;
-
-  const previewText =
-    `Nama Suspect: ${namaSuspect}
-Nama Petugas: ${namaPetugas}
-ID Card: ${idCard}
-Foto: ${foto}`;
-
-  document.getElementById('previewContent').innerText = previewText;
-  document.getElementById('previewContainer').style.display = 'block';
-}
-
-function closeModal() {
-  document.getElementById('modalForm').style.display = 'none';
-}
-
-// Tampilkan nama file yang dipilih
-document.getElementById('fotoFile').addEventListener('change', function () {
-  const file = this.files[0];
-  document.getElementById('fotoFileName').innerText = file ? file.name : '';
-});
-
-async function kirimKeDiscord() {
-  const namaSuspect = document.getElementById('namaSuspect').value;
-  const namaPetugas = document.getElementById('namaPetugas').value;
-  const idCard = document.getElementById('idCard').value;
-  const foto = document.getElementById('foto').value;
-  const fotoFile = document.getElementById('fotoFile').files[0];
-
-  if (!namaSuspect || !namaPetugas) {
-    alert('Nama suspect dan petugas wajib diisi!');
-    return;
-  }
-
-  const embed = {
-    title: "Laporan Baru",
-    color: 7506394,
-    fields: [
-      { name: "Nama Suspect", value: namaSuspect, inline: true },
-      { name: "Nama Petugas", value: namaPetugas, inline: true },
-      { name: "ID Card", value: idCard, inline: true },
-      { name: "Foto", value: foto, inline: true }
-    ],
-    timestamp: new Date().toISOString()
-  };
-
-  if (fotoFile) {
-    const formData = new FormData();
-    formData.append('file', fotoFile);
-    embed.image = { url: "attachment://" + fotoFile.name };
-    formData.append('payload_json', JSON.stringify({ embeds: [embed] }));
-
-    try {
-      const response = await fetch(DISCORD_WEBHOOK_URL, {
-        method: 'POST',
-        body: formData
-      });
-      if (response.ok) {
-        alert('Laporan berhasil dikirim ke Discord!');
-        closeModal();
-      } else {
-        alert('Gagal mengirim ke Discord!');
-      }
-    } catch (err) {
-      alert('Terjadi kesalahan: ' + err.message);
-    }
-  } else {
-    try {
-      const response = await fetch(DISCORD_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ embeds: [embed] })
-      });
-      if (response.ok) {
-        alert('Laporan berhasil dikirim ke Discord!');
-        closeModal();
-      } else {
-        alert('Gagal mengirim ke Discord!');
-      }
-    } catch (err) {
-      alert('Terjadi kesalahan: ' + err.message);
-    }
-  }
-}
-</script>
 
     <!-- Contact Button -->
     <div class="contact-button" id="contactBtn">
