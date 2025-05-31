@@ -1310,15 +1310,13 @@
       <option value="Tidak Ada">Tidak Ada</option>
     </select>
 
-    <div id="previewContainer" style="display: none; margin-top: 20px; padding: 15px; background: #2f3136; border-radius: 5px; max-height: 300px; overflow-y: auto;">
-    <h3 style="margin-top: 0; color: white;">PREVIEW PESAN DISCORD</h3>
-    <pre id="previewContent" style="white-space: pre-wrap; word-wrap: break-word; margin: 0; color: white;"></pre>
-    </div>
+    <!-- Input upload gambar nyata -->
+    <label>Upload Foto (opsional):</label>
+    <input type="file" id="fotoFile" accept="image/*">
 
-    <div class="button-group">
-      <button onclick="tampilkanPreview()" class="btn btn-preview">Preview</button>
-      <button onclick="kirimKeDiscord()" class="btn btn-discord">Kirim</button>
-      <button onclick="closeModal()" class="btn btn-danger">Batal</button>
+    <div style="margin-top:15px; display: flex; gap: 10px; justify-content: flex-end;">
+      <button type="button" class="btn btn-danger" id="batalKirimDiscord">Batal</button>
+      <button type="button" class="btn btn-discord" id="kirimDiscord"><i class="fab fa-discord"></i> Kirim ke Discord</button>
     </div>
   </div>
 </div>
