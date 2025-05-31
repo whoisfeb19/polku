@@ -1323,6 +1323,117 @@
   </div>
 </div>
 
+<!-- Tambahkan elemen input file di luar modal -->
+<input type="file" id="fotoFile" accept="image/*" style="display:none;">
+<label for="fotoFile" id="fotoFileLabel" style="cursor:pointer;display:inline-block;margin:10px 0;background:#7289da;color:white;padding:6px 12px;border-radius:4px;">Upload Foto (Opsional)</label>
+<span id="fotoFileName" style="margin-left:10px;"></span>
+
+<script>
+// Webhook Discord Anda
+const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/WEBHOOK_ID/WEBHOOK_TOKEN'; // Ganti dengan URL webhook Anda
+
+function tampilkanPreview() {
+  const namaSuspect = document.getElementById('namaSuspect').value;
+  const namaPetugas = document.getElementById('namaPetugas').value;
+  const idCard = document.getElementById('idCard').value;
+  const foto = document.getElementById('foto').value;
+
+  const previewText = 
+    `Nama Suspect: ${namaSuspect}
+Nama Petugas: ${namaPetugas}
+ID Card: ${idCard}
+Foto: ${foto}`;
+
+  document.getElementById('previewContent').innerText = previewText;
+  document.getElementById('previewContainer').style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('modalForm').style.display = 'none';
+}
+
+// Tampilkan nama file jika dipilih
+document.getElementById('fotoFile').addEventListener('change', function(){
+  const file = this.files[0];
+  document.getElementById('fotoFileName').innerText = file ? file.name : '';
+});
+
+// Hook tombol Upload agar bisa dipakai saat modal tampil
+document.getElementById('fotoFileLabel').onclick = function(){
+  document.getElementById('fotoFile').click();
+};
+
+// Patch fungsi kirimKeDiscord jika sudah ada, atau tambahkan jika belum ada
+window._originalKirimKeDiscord = window.kirimKeDiscord || function(){};
+window.kirimKeDiscord = async function(){
+  // Ambil data dari form existing
+  const namaSuspect = document.getElementById('namaSuspect')?.value || "";
+  const namaPetugas = document.getElementById('namaPetugas')?.value || "";
+  const idCard = document.getElementById('idCard')?.value || "";
+  const foto = document.getElementById('foto')?.value || "";
+  const fotoFile = document.getElementById('fotoFile')?.files[0] || null;
+
+  if (!namaSuspect || !namaPetugas) {
+    alert('Nama suspect dan petugas wajib diisi!');
+    return;
+  }
+
+  const embed = {
+    title: "Laporan Baru",
+    color: 7506394,
+    fields: [
+      { name: "Nama Suspect", value: namaSuspect, inline: true },
+      { name: "Nama Petugas", value: namaPetugas, inline: true },
+      { name: "ID Card", value: idCard, inline: true },
+      { name: "Foto", value: foto, inline: true }
+    ],
+    timestamp: new Date().toISOString()
+  };
+
+  // Jika ada file, upload dengan attachment Discord
+  if (fotoFile) {
+    const formData = new FormData();
+    formData.append('file', fotoFile);
+
+    // attachment akan otomatis menjadi attachment[0]
+    embed.image = { url: "attachment://" + fotoFile.name };
+    formData.append('payload_json', JSON.stringify({ embeds: [embed] }));
+
+    try {
+      const response = await fetch(DISCORD_WEBHOOK_URL, {
+        method: 'POST',
+        body: formData
+      });
+      if (response.ok) {
+        alert('Laporan berhasil dikirim ke Discord!');
+        closeModal();
+      } else {
+        alert('Gagal mengirim ke Discord!');
+      }
+    } catch (err) {
+      alert('Terjadi kesalahan: ' + err.message);
+    }
+  } else {
+    // Tanpa file, kirim payload biasa
+    try {
+      const response = await fetch(DISCORD_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ embeds: [embed] })
+      });
+      if (response.ok) {
+        alert('Laporan berhasil dikirim ke Discord!');
+        closeModal();
+      } else {
+        alert('Gagal mengirim ke Discord!');
+      }
+    } catch (err) {
+      alert('Terjadi kesalahan: ' + err.message);
+    }
+  }
+};
+</script>
+
     <!-- Contact Button -->
     <div class="contact-button" id="contactBtn">
         <i class="fas fa-info-circle"></i>
