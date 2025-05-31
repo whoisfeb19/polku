@@ -1287,7 +1287,7 @@
     </div>
 
 
-<!-- Modal Kirim Laporan ke Discord -->
+<!-- Modal (Tersembunyi awalnya) -->
 <div id="modalForm" class="modal-overlay" style="display: none;">
   <div class="report-modal">
     <h2>Kirim Laporan ke Discord</h2>
@@ -1310,75 +1310,18 @@
       <option value="Tidak Ada">Tidak Ada</option>
     </select>
 
-    <!-- Input upload gambar nyata -->
-    <label>Upload Foto (opsional):</label>
-    <input type="file" id="fotoFile" accept="image/*">
+    <div id="previewContainer" style="display: none; margin-top: 20px; padding: 15px; background: #2f3136; border-radius: 5px; max-height: 300px; overflow-y: auto;">
+    <h3 style="margin-top: 0; color: white;">PREVIEW PESAN DISCORD</h3>
+    <pre id="previewContent" style="white-space: pre-wrap; word-wrap: break-word; margin: 0; color: white;"></pre>
+    </div>
 
-    <div style="margin-top:15px; display: flex; gap: 10px; justify-content: flex-end;">
-      <button type="button" class="btn btn-danger" id="batalKirimDiscord">Batal</button>
-      <button type="button" class="btn btn-discord" id="kirimDiscord"><i class="fab fa-discord"></i> Kirim ke Discord</button>
+    <div class="button-group">
+      <button onclick="tampilkanPreview()" class="btn btn-preview">Preview</button>
+      <button onclick="kirimKeDiscord()" class="btn btn-discord">Kirim</button>
+      <button onclick="closeModal()" class="btn btn-danger">Batal</button>
     </div>
   </div>
 </div>
-
-<script>
-// Tombol tutup modal
-document.getElementById('batalKirimDiscord').onclick = function() {
-  document.getElementById('modalForm').style.display = 'none';
-};
-
-// Tombol kirim ke Discord
-document.getElementById('kirimDiscord').onclick = async function() {
-  const namaSuspect = document.getElementById('namaSuspect').value.trim();
-  const namaPetugas = document.getElementById('namaPetugas').value.trim();
-  const idCard = document.getElementById('idCard').value;
-  const foto = document.getElementById('foto').value;
-  const fileInput = document.getElementById('fotoFile');
-  const file = fileInput.files[0];
-
-  // Validasi sederhana
-  if (!namaSuspect || !namaPetugas) {
-    Swal.fire('Lengkapi Data!', 'Nama suspect dan petugas wajib diisi.', 'warning');
-    return;
-  }
-
-  let content = `**Laporan Baru**\n`;
-  content += `Nama Suspect: ${namaSuspect}\n`;
-  content += `Nama Petugas: ${namaPetugas}\n`;
-  content += `ID CARD: ${idCard}\n`;
-  content += `FOTO: ${foto}\n`;
-
-  const formData = new FormData();
-  formData.append('content', content);
-  if (file) {
-    formData.append('file', file);
-  }
-
-  // Ganti dengan webhook Discord kamu
-  const webhookUrl = "https://discord.com/api/webhooks/1120309848467308645/H16Q4p8TI66ndVQKyxCFYkOP2KZXhDBktWXXnOGhq2pw0WiLyEgJQGe_CEMkaM7UY-wz";
-
-  try {
-    const response = await fetch(webhookUrl, {
-      method: 'POST',
-      body: formData
-    });
-    if (response.ok) {
-      Swal.fire('Berhasil!', 'Laporan berhasil dikirim ke Discord.', 'success');
-      document.getElementById('modalForm').style.display = 'none';
-      // Reset form
-      document.getElementById('namaSuspect').value = '';
-      document.getElementById('namaPetugas').value = '';
-      document.getElementById('idCard').selectedIndex = 0;
-      document.getElementById('foto').selectedIndex = 0;
-      document.getElementById('fotoFile').value = '';
-    } else {
-      Swal.fire('Gagal!', 'Gagal mengirim laporan ke Discord.', 'error');
-    }
-  } catch (err) {
-    Swal.fire('Error!', 'Terjadi kesalahan saat mengirim laporan.', 'error');
-  }
-};
-</script>
 
     <!-- Contact Button -->
     <div class="contact-button" id="contactBtn">
