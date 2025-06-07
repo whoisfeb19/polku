@@ -2,220 +2,167 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Kepolisian Kotaku</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <title>Login Discord OAuth2</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    * {
-      box-sizing: border-box;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      height: 100vh;
       min-height: 100vh;
-      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('home.png');
+      background: url('home.png') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
-    .login-container {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      width: 100%;
-      max-width: 400px;
-      padding: 30px;
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(25, 25, 25, 0.48);
+      z-index: 1;
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+      background: rgba(44,47,51,0.95);
+      border-radius: 16px;
+      box-shadow: 0 4px 32px #000a, 0 0 0 4px #2226;
+      padding: 42px 30px 34px 30px;
+      min-width: 320px;
+      max-width: 350px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      animation: pop 0.7s cubic-bezier(.42,1.56,.41,.87);
     }
-
-    .logo {
-      margin-bottom: 20px;
+    @keyframes pop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
-
-    .logo img {
-      width: 100px;
-      height: auto;
+    .btn-discord {
+      background: #5865F2; color: #fff; border: none; border-radius: 7px;
+      font-size: 1.15em; padding: 14px 32px; cursor:pointer; transition:.16s;
+      display:inline-flex;align-items:center;gap:12px;margin-top:17px; font-weight:600;
+      box-shadow: 0 2px 10px #20244722;
     }
-
-    h1 {
-      color: #2c3e50;
-      margin-bottom: 20px;
-      font-size: 24px;
+    .btn-discord:hover { background: #4752c4; }
+    .discord-icon { font-size:1.55em; }
+    .userinfo { margin:18px 0 0 0; }
+    .avatar { border-radius:50%;margin-bottom:8px;box-shadow:0 2px 6px #0008;}
+    .judul-gta {
+      font-family: Impact, 'Arial Black', Arial, sans-serif;
+      color: #fff;
+      text-shadow: 2px 3px 8px #000, 0 0 12px #222;
+      font-size: 2.1em;
+      letter-spacing: 2px;
+      margin-bottom: 0.8em;
+      margin-top: 0;
+      line-height: 1.1;
     }
-
-    .input-group {
-      margin-bottom: 20px;
-      text-align: left;
+    .kotaku-rp {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #f8fafc;
+      font-size: 1.15em;
+      letter-spacing: 1.2px;
+      margin-bottom: 1.5em;
+      margin-top: 0;
     }
-
-    .input-group label {
-      display: block;
-      margin-bottom: 8px;
-      color: #2c3e50;
-      font-weight: 500;
+    @media (max-width: 540px) {
+      .container { min-width: unset; max-width: 96vw; padding: 25px 7vw; }
+      .judul-gta { font-size: 1.45em;}
     }
-
-    .input-group input {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: all 0.3s;
-    }
-
-    .input-group input:focus {
-      border-color: #3498db;
-      outline: none;
-      box-shadow: 0 0 5px rgba(52,152,219,0.5);
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #2c3e50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      margin-top: 10px;
-    }
-
-    button:hover {
-      background-color: #34495e;
-    }
-
-    .links {
-      margin-top: 20px;
-      font-size: 14px;
-    }
-
-    .links a {
-      color: #3498db;
-      text-decoration: none;
-    }
-
-    .links a:hover {
-      text-decoration: underline;
-    }
-
-    .error-message {
-      color: #e74c3c;
-      margin-top: 10px;
-      font-size: 14px;
-    }
-
-    .input-with-icon {
-    position: relative;
-    }
-
-    /* Style ikon */
-    .input-with-icon .icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999; /* Warna abu-abu seperti placeholder */
-    font-size: 14px;
-    z-index: 2;
-    }
-
-    /* Style input */
-    .input-with-icon input {
-    width: 100%;
-    padding: 12px 12px 12px 40px; /* Ruang untuk ikon */
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 16px;
-    }
-
-    /* Sembunyikan placeholder asli saat input aktif */
-    .input-with-icon input:focus::placeholder {
-    color: transparent;
-    }
-    
   </style>
+  <script src="https://kit.fontawesome.com/31c7e3c6a6.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="login-container">
-    <div class="logo">
-      <img src="logo.png" alt="Logo Kepolisian Kotaku">
+  <div class="overlay"></div>
+  <div class="container">
+    <div>
+      <div class="judul-gta">Grand Theft Auto<br>San Andreas</div>
+      <div class="kotaku-rp">Kotaku Roleplay - Login Discord</div>
     </div>
-    <h1>LOGIN SISTEM Kepolisian Kotaku</h1>
-      <form id="loginForm">
-        <div class="input-group">
-            <div class="input-with-icon">
-            <i class="fas fa-envelope icon"></i>
-            <input type="email" id="email" placeholder="Email" required>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="input-with-icon">
-            <i class="fas fa-lock icon"></i>
-            <input type="password" id="password" placeholder="Password" required>
-            </div>
-        </div>
-
-      <div id="errorMessage" class="error-message"></div>
-
-      <button type="submit"><i class="fas fa-sign-in-alt"></i> LOGIN</button>
-
-      <div class="links">
-        <a href="register.html">Belum punya akun? Daftar disini</a>
-        <br>
-        <a href="forgot-password.html">Lupa password?</a>
-      </div>
-    </form>
+    <button class="btn-discord" id="loginBtn">
+      <i class="fab fa-discord discord-icon"></i> Login Discord
+    </button>
+    <div class="userinfo" id="userinfo" style="display:none;">
+      <img id="avatar" class="avatar" width="80" height="80" alt="User Avatar"/><br>
+      <b id="username"></b><br>
+      <span id="userid" style="font-size:0.95em; color:#b9bbbe;"></span><br>
+      <button class="btn-discord" onclick="logout()">Logout Discord</button>
+    </div>
   </div>
-
 <script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyDORjstoitYjNGvvqKx7f-PjOfOP3seIfc",
-    authDomain: "uukotaku.firebaseapp.com",
-    projectId: "uukotaku",
-    storageBucket: "uukotaku.firebasestorage.app",
-    messagingSenderId: "666796153269",
-    appId: "1:666796153269:web:4b201eeaeacf9a24b261fc"
-  };
+const clientId = "1356210770559504398"; // Ganti dengan Client ID Discord App kamu
+const redirectUri = window.location.origin + window.location.pathname;
+const scopes = "identify";
 
-  // Inisialisasi Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+document.getElementById('loginBtn').onclick = function() {
+  const url = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(scopes)}`;
+  window.location.href = url;
+};
 
-  // Cek apakah user sudah login
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      window.location.href = "beranda.html";
+window.onload = function() {
+  if (window.location.hash && window.location.hash.includes("access_token")) {
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const token = params.get("access_token");
+    if (token) {
+      localStorage.setItem("discord_token", token);
+      window.location.hash = "";
     }
-  });
+  }
+  const token = localStorage.getItem("discord_token");
+  if (token) {
+    fetch("https://discord.com/api/users/@me", {
+      headers: { "Authorization": "Bearer " + token }
+    })
+    .then(r => r.json())
+    .then(user => {
+      if (user.id) {
+        // Simpan user.id & username ke localStorage untuk digunakan di halaman lain (formulir)
+        localStorage.setItem("discord_id", user.id);
+        localStorage.setItem("discord_username", user.username + "#" + user.discriminator);
 
-  // Tangani Form Login
-  document.getElementById('loginForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Mencegah reload halaman
+        document.getElementById('userinfo').style.display = "";
+        document.getElementById('loginBtn').style.display = "none";
+        document.getElementById('username').textContent = user.username + "#" + user.discriminator;
+        document.getElementById('userid').textContent = "ID: " + user.id;
+        document.getElementById('avatar').src = user.avatar
+          ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
+          : "https://cdn.discordapp.com/embed/avatars/0.png";
+        window.discordUser = user;
+        // Setelah login sukses, redirect ke halaman utama/dashboard
+        setTimeout(() => {
+          window.location.href = "beranda.html"; // GANTI dengan halaman tujuanmu!
+        }, 1200); // Tampilkan info user sebentar, lalu redirect
+      } else {
+        localStorage.removeItem("discord_token");
+        localStorage.removeItem("discord_id");
+        localStorage.removeItem("discord_username");
+        location.reload();
+      }
+    })
+    .catch(() => {
+      localStorage.removeItem("discord_token");
+      localStorage.removeItem("discord_id");
+      localStorage.removeItem("discord_username");
+      location.reload();
+    });
+  }
+};
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const errorMessage = document.getElementById('errorMessage');
-
-    auth.signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Login sukses
-        window.location.href = "beranda.html";
-      })
-      .catch((error) => {
-        errorMessage.textContent = error.message;
-      });
-  });
+function logout() {
+  localStorage.removeItem("discord_token");
+  localStorage.removeItem("discord_id");
+  localStorage.removeItem("discord_username");
+  location.reload();
+}
 </script>
 </body>
 </html>
