@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Klasifikasi Pasal Menurut Sistem Hukum Indonesia (Urut dari Paling Ringan ke Paling Berat)</title>
+    <title>Klasifikasi Pasal GTA RP (Kategori & Kode)</title>
     <style>
         body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px;}
         h2 { margin-top: 40px; }
@@ -12,16 +12,18 @@
         tr:nth-child(even) { background-color: #f2f2f2;}
         .llaj th { background-color: #0074c2; }
         .pidana th { background-color: #388e3c; }
+        .properti th { background-color: #ffa000; }
         .narkotika th { background-color: #7b1fa2; }
         .darurat th { background-color: #b71c1c; }
+        .peperangan th { background-color: #455a64; }
+        .carstell th { background-color: #8e24aa; }
         .tipikor th { background-color: #e65100; }
         .terorisme th { background-color: #263238; }
-        .satwa th { background-color: #ffd600; color:#222;}
-        .berat th { background-color: #b71c1c; }
     </style>
 </head>
 <body>
-    <h2>1. Pelanggaran Lalu Lintas (UU LLAJ) – Paling Ringan</h2>
+    <!-- 1. Lalu Lintas -->
+    <h2>1. Pelanggaran Lalu Lintas (UU LLAJ)</h2>
     <table class="llaj">
         <thead>
             <tr>
@@ -32,26 +34,27 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>A1</td><td>Mengemudi kendaraan bermotor tanpa helm</td><td>1.000</td><td>Penilangan</td></tr>
+            <tr><td>A1</td><td>Mengemudi tanpa helm</td><td>1.000</td><td>Penilangan</td></tr>
             <tr><td>A2</td><td>Tidak memiliki SIM</td><td>1.000</td><td>Penilangan</td></tr>
-            <tr><td>A3</td><td>Kendaraan tidak memiliki plate</td><td>1.000</td><td>Penilangan</td></tr>
+            <tr><td>A3</td><td>Kendaraan tanpa plat</td><td>1.000</td><td>Penilangan</td></tr>
             <tr><td>A4</td><td>Parkir sembarangan</td><td>1.500</td><td>Impound 1 hari</td></tr>
-            <tr><td>A5</td><td>Kendaraan berada di zona terlarang/ilegal</td><td>1.500</td><td>Impound 1 hari</td></tr>
-            <tr><td>A6</td><td>Tidak membayar tol</td><td>2.000</td><td>Impound 3 hari</td></tr>
+            <tr><td>A5</td><td>Kendaraan di zona terlarang</td><td>1.500</td><td>Impound 1 hari</td></tr>
+            <tr><td>A6</td><td>Tidak membayar tol</td><td>2.000</td><td>Impound 2 hari</td></tr>
             <tr><td>A7</td><td>Melawan arus jalan</td><td>2.000</td><td>Impound 2 hari</td></tr>
-            <tr><td>A8</td><td>Berkendara melebihi batas kecepatan</td><td>2.000</td><td>Impound 2 hari</td></tr>
+            <tr><td>A8</td><td>Speeding/ngebut</td><td>2.000</td><td>Impound 2 hari</td></tr>
             <tr><td>A9</td><td>Berkendara ugal-ugalan</td><td>2.000</td><td>Impound 2 hari</td></tr>
-            <tr><td>A10</td><td>Melarikan diri saat razia</td><td>2.500</td><td>Impound 3 hari</td></tr>
-            <tr><td>A11</td><td>Terlibat dalam balapan liar</td><td>2.500</td><td>Penjara 10 bulan</td></tr>
-            <tr><td>A12</td><td>Kendaraan truck masuk area keramaian</td><td>2.500</td><td>Impound 3 hari</td></tr>
-            <tr><td>A13</td><td>Kendaraan berada di TKP peperangan</td><td>3.000</td><td>Impound 4 hari</td></tr>
-            <tr><td>A14</td><td>Terdapat barang ilegal pada kendaraan</td><td>3.000</td><td>Impound 4 hari</td></tr>
-            <tr><td>A15</td><td>Terdapat senjata pada kendaraan</td><td>3.500</td><td>Impound 7 hari</td></tr>
+            <tr><td>A10</td><td>Kabur saat razia</td><td>2.500</td><td>Impound 3 hari</td></tr>
+            <tr><td>A11</td><td>Balapan liar</td><td>3.000</td><td>Jail 20 menit</td></tr>
+            <tr><td>A12</td><td>Truck di area keramaian</td><td>2.500</td><td>Impound 3 hari</td></tr>
+            <tr><td>A13</td><td>Kendaraan di TKP peperangan</td><td>3.000</td><td>Impound 4 hari</td></tr>
+            <tr><td>A14</td><td>Barang ilegal di kendaraan</td><td>3.000</td><td>Impound 4 hari</td></tr>
+            <tr><td>A15</td><td>Senjata di kendaraan</td><td>3.500</td><td>Impound 7 hari</td></tr>
             <tr><td>A16</td><td>Menghambat arus lalu lintas</td><td>4.000</td><td>Impound 5 hari</td></tr>
-            <tr><td>A17</td><td>Menghambat jalannya kendaraan prioritas</td><td>4.500</td><td>Impound 5 hari</td></tr>
+            <tr><td>A17</td><td>Menghambat kendaraan prioritas</td><td>4.500</td><td>Impound 5 hari</td></tr>
         </tbody>
     </table>
 
+    <!-- 2. Sosial/Umum -->
     <h2>2. Pelanggaran Sosial dan Ketertiban Umum (KUHP)</h2>
     <table class="pidana">
         <thead>
@@ -63,28 +66,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>B1</td><td>Tidak memiliki kartu identitas/KTP</td><td>1.500</td><td>Sanksi Sosial</td></tr>
-            <tr><td>B2</td><td>Menyalahgunakan panggilan hotline</td><td>2.500</td><td>Sanksi Sosial</td></tr>
-            <tr><td>B3</td><td>Merusak fasilitas umum</td><td>3.000</td><td>5</td></tr>
-            <tr><td>B4</td><td>Membuat keributan di tempat umum</td><td>3.500</td><td>6</td></tr>
-            <tr><td>B5</td><td>Pencemaran nama baik warga</td><td>3.500</td><td>7</td></tr>
-            <tr><td>B6</td><td>Pencemaran nama baik instansi</td><td>5.000</td><td>10</td></tr>
-            <tr><td>B7</td><td>Melakukan kekerasan fisik terhadap warga</td><td>4.000</td><td>5</td></tr>
-            <tr><td>B8</td><td>Melakukan penipuan terhadap warga</td><td>4.500</td><td>6</td></tr>
-            <tr><td>B9</td><td>Melakukan pelecehan seksual terhadap warga</td><td>4.500</td><td>6</td></tr>
-            <tr><td>B10</td><td>Merusak/merebut aset pribadi milik warga</td><td>5.000</td><td>6</td></tr>
-            <tr><td>B11</td><td>Penghinaan terhadap baik instansi</td><td>5.000</td><td>10</td></tr>
-            <tr><td>B12</td><td>Pemberian informasi palsu</td><td>5.500</td><td>7</td></tr>
-            <tr><td>B13</td><td>Memberikan laporan palsu ke kepolisian</td><td>5.500</td><td>7</td></tr>
-            <tr><td>B14</td><td>Membawa senjata tajam/tumpul di tempat umum</td><td>5.500</td><td>9</td></tr>
-            <tr><td>B15</td><td>Kabur saat di berhentikan</td><td>7.000</td><td>10</td></tr>
-            <tr><td>B16</td><td>Penyalahgunaan senjata tumpul</td><td>10.000</td><td>10</td></tr>
-            <tr><td>B17</td><td>Penyalahgunaan senjata tumpul</td><td>4.500</td><td>Impound 5 hari</td></tr>
+            <tr><td>B1</td><td>Tidak ada identitas/KTP</td><td>1.500</td><td>Sanksi Sosial</td></tr>
+            <tr><td>B2</td><td>Menyalahgunakan hotline</td><td>2.000</td><td>Sanksi Sosial</td></tr>
+            <tr><td>B3</td><td>Merusak fasilitas umum</td><td>2.500</td><td>Jail 10 menit</td></tr>
+            <tr><td>B4</td><td>Keributan di tempat umum</td><td>2.500</td><td>Jail 10 menit</td></tr>
+            <tr><td>B5</td><td>Pencemaran nama baik warga</td><td>2.500</td><td>Jail 10 menit</td></tr>
+            <tr><td>B6</td><td>Pencemaran nama baik instansi</td><td>3.000</td><td>Jail 15 menit</td></tr>
+            <tr><td>B7</td><td>Kekerasan fisik</td><td>3.500</td><td>Jail 15 menit</td></tr>
+            <tr><td>B8</td><td>Penipuan</td><td>3.500</td><td>Jail 15 menit</td></tr>
+            <tr><td>B9</td><td>Pelecehan seksual</td><td>3.500</td><td>Jail 15 menit</td></tr>
+            <tr><td>B10</td><td>Merusak aset pribadi</td><td>3.500</td><td>Jail 15 menit</td></tr>
+            <tr><td>B11</td><td>Penghinaan instansi</td><td>3.500</td><td>Jail 15 menit</td></tr>
+            <tr><td>B12</td><td>Memberi informasi palsu</td><td>4.000</td><td>Jail 20 menit</td></tr>
+            <tr><td>B13</td><td>Laporan palsu ke polisi</td><td>4.000</td><td>Jail 20 menit</td></tr>
+            <tr><td>B14</td><td>Bawa sajam/tumpul di umum</td><td>4.500</td><td>Jail 20 menit</td></tr>
+            <tr><td>B15</td><td>Kabur saat diberhentikan</td><td>5.000</td><td>Jail 20 menit</td></tr>
+            <tr><td>B16</td><td>Penyalahgunaan sajam/tumpul</td><td>6.000</td><td>Jail 25 menit</td></tr>
         </tbody>
     </table>
 
-    <h2>3. Pelanggaran Khusus (UU Perlindungan Satwa, Perjudian, Perampokan dsb)</h2>
-    <table class="satwa">
+    <!-- 3. Properti, Kekerasan, Pembegalan -->
+    <h2>3. Tindak Pidana Properti, Kekerasan, & Pembegalan</h2>
+    <table class="properti">
         <thead>
             <tr>
                 <th>Kode</th>
@@ -94,16 +97,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>C1</td><td>Menangkap satwa yang dilindungi</td><td>4.500</td><td>10</td></tr>
-            <tr><td>C6</td><td>Melakukan pemburuan ilegal</td><td>5.000</td><td>15</td></tr>
-            <tr><td>C3</td><td>Mencuri/merusak kendaraan orang lain</td><td>4.500</td><td>15</td></tr>
-            <tr><td>C8</td><td>Melakukan judi casino</td><td>5.000</td><td>15</td></tr>
-            <tr><td>C20</td><td>Melakukan pemalakan terhadap warga</td><td>7.000</td><td>35</td></tr>
-            <tr><td>C30</td><td>Melakukan perampokan warung</td><td>30.000</td><td>65</td></tr>
-            <tr><td>C31</td><td>Melakukan perampokan bank</td><td>35.000</td><td>65</td></tr>
+            <tr><td>C1</td><td>Pencurian kendaraan/motor</td><td>6.000</td><td>Jail 20 menit</td></tr>
+            <tr><td>C2</td><td>Pencurian properti/rumah</td><td>8.000</td><td>Jail 25 menit</td></tr>
+            <tr><td>C3</td><td>Pembegalan (begal)</td><td>12.000</td><td>Jail 30 menit</td></tr>
+            <tr><td>C4</td><td>Perampokan warung/toko</td><td>20.000</td><td>Jail 50 menit</td></tr>
+            <tr><td>C5</td><td>Perampokan bank</td><td>30.000</td><td>Jail 60 menit</td></tr>
+            <tr><td>C6</td><td>Pemalakan/pungli</td><td>7.000</td><td>Jail 25 menit</td></tr>
         </tbody>
     </table>
 
+    <!-- 4. Narkotika -->
     <h2>4. Narkotika (UU No. 35/2009)</h2>
     <table class="narkotika">
         <thead>
@@ -115,15 +118,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>C12</td><td>Kepemilikan obat-obatan terlarang</td><td>5.000</td><td>30</td></tr>
-            <tr><td>C13</td><td>Pengedaran obat-obatan terlarang</td><td>6.000</td><td>35</td></tr>
-            <tr><td>C14</td><td>Menanam/mencabut kanabis</td><td>6.000</td><td>35</td></tr>
-            <tr><td>C15</td><td>Produksi obat-obatan terlarang</td><td>6.000</td><td>35</td></tr>
-            <tr><td>D11</td><td>Memiliki obat-obatan terlarang di atas 500</td><td>60.000</td><td>Hukuman Mati / 120</td></tr>
+            <tr><td>D1</td><td>Kepemilikan narkoba</td><td>10.000</td><td>Jail 30 menit</td></tr>
+            <tr><td>D2</td><td>Pengedaran narkoba</td><td>15.000</td><td>Jail 45 menit</td></tr>
+            <tr><td>D3</td><td>Produksi narkoba</td><td>15.000</td><td>Jail 45 menit</td></tr>
+            <tr><td>D4</td><td>Kepemilikan >500 narkoba</td><td>60.000</td><td>Jail 120 menit</td></tr>
         </tbody>
     </table>
 
-    <h2>5. Senjata Api dan Amunisi Ilegal (UU Darurat No. 12/1951)</h2>
+    <!-- 5. Senjata Api & Amunisi Ilegal -->
+    <h2>5. Senjata Api & Amunisi Ilegal (UU Darurat)</h2>
     <table class="darurat">
         <thead>
             <tr>
@@ -134,20 +137,55 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>D2</td><td>Memiliki 200-400 clip amunisi</td><td>30.000</td><td>60</td></tr>
-            <tr><td>D3</td><td>Pengedaran senjata ilegal</td><td>30.000</td><td>45</td></tr>
-            <tr><td>D4</td><td>Produksi senjata ilegal</td><td>35.000</td><td>50</td></tr>
-            <tr><td>C21</td><td>Kepemilikan 1-10 clip amunisi senjata</td><td>7.500</td><td>40</td></tr>
-            <tr><td>C22</td><td>Kepemilikan 11-50 clip amunisi senjata</td><td>8.000</td><td>45</td></tr>
-            <tr><td>C23</td><td>Kepemilikan 51-200 clip amunisi senjata</td><td>9.000</td><td>50</td></tr>
-            <tr><td>D12</td><td>Memiliki clip amunisi di atas 400</td><td>100.000</td><td>Hukuman Mati / 120</td></tr>
-            <tr><td>C27</td><td>Kepemilikan senjata ilegal ringan</td><td>15.000</td><td>55</td></tr>
-            <tr><td>C28</td><td>Kepemilikan senjata ilegal sedang</td><td>20.000</td><td>60</td></tr>
-            <tr><td>C29</td><td>Kepemilikan senjata ilegal berat</td><td>25.000</td><td>65</td></tr>
+            <tr><td>E1</td><td>Kepemilikan senjata api ringan</td><td>10.000</td><td>Jail 40 menit</td></tr>
+            <tr><td>E2</td><td>Kepemilikan senjata api sedang</td><td>15.000</td><td>Jail 50 menit</td></tr>
+            <tr><td>E3</td><td>Kepemilikan senjata api berat</td><td>20.000</td><td>Jail 60 menit</td></tr>
+            <tr><td>E4</td><td>Pengedaran senjata ilegal</td><td>25.000</td><td>Jail 55 menit</td></tr>
+            <tr><td>E5</td><td>Produksi senjata ilegal</td><td>30.000</td><td>Jail 60 menit</td></tr>
+            <tr><td>E6</td><td>Kepemilikan amunisi 1-50 clip</td><td>8.000</td><td>Jail 40 menit</td></tr>
+            <tr><td>E7</td><td>Kepemilikan amunisi >200 clip</td><td>30.000</td><td>Jail 60 menit</td></tr>
         </tbody>
     </table>
 
-    <h2>6. Korupsi (UU Tipikor)</h2>
+    <!-- 6. Penembakan & Peperangan -->
+    <h2>6. Penembakan & Peperangan (UU Khusus RP)</h2>
+    <table class="peperangan">
+        <thead>
+            <tr>
+                <th>Kode</th>
+                <th>Jenis Pelanggaran</th>
+                <th>Denda</th>
+                <th>Hukuman</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>F1</td><td>Penembakan tanpa alasan RP (random shoot/RDM)</td><td>10.000</td><td>Jail 30 menit</td></tr>
+            <tr><td>F2</td><td>Penembakan di zona aman (green zone)</td><td>12.000</td><td>Jail 40 menit</td></tr>
+            <tr><td>F3</td><td>Peperangan ilegal tanpa izin RP/server</td><td>20.000</td><td>Jail 60 menit</td></tr>
+            <tr><td>F4</td><td>Menggunakan granat/bom tanpa alasan</td><td>25.000</td><td>Jail 60 menit</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 7. Carstell -->
+    <h2>7. Carstell (Penipuan/Curang Jual Beli Kendaraan)</h2>
+    <table class="carstell">
+        <thead>
+            <tr>
+                <th>Kode</th>
+                <th>Jenis Pelanggaran</th>
+                <th>Denda</th>
+                <th>Hukuman</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>CS1</td><td>Penipuan jual beli kendaraan (carstell)</td><td>15.000</td><td>Jail 40 menit, pengembalian kendaraan/dana ke korban</td></tr>
+            <tr><td>CS2</td><td>Pemalsuan surat kendaraan</td><td>10.000</td><td>Jail 30 menit, penyitaan kendaraan</td></tr>
+            <tr><td>CS3</td><td>Jual beli kendaraan tanpa hak (bukan pemilik sah)</td><td>12.000</td><td>Jail 35 menit, penyitaan kendaraan</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 8. Korupsi -->
+    <h2>8. Korupsi</h2>
     <table class="tipikor">
         <thead>
             <tr>
@@ -158,12 +196,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>D13</td><td>Korupsi terhadap perusahaan swasta</td><td>Penyitaan aset</td><td>Hukuman Mati / 150</td></tr>
-            <tr><td>D14</td><td>Korupsi anggaran pemerintah</td><td>-</td><td>Hukuman Mati</td></tr>
+            <tr><td>G1</td><td>Korupsi swasta</td><td>50.000</td><td>Jail 100 menit + sita aset</td></tr>
+            <tr><td>G2</td><td>Korupsi pemerintah</td><td>100.000</td><td>Jail 150 menit + sita aset</td></tr>
         </tbody>
     </table>
 
-    <h2>7. Terorisme (UU Anti-Terorisme) – Paling Berat</h2>
+    <!-- 9. Terorisme -->
+    <h2>9. Terorisme (RP/Banned Case)</h2>
     <table class="terorisme">
         <thead>
             <tr>
@@ -174,8 +213,138 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>D16</td><td>Terorisme</td><td>150.000</td><td>Hukuman Mati / 200</td></tr>
+            <tr><td>H1</td><td>Terorisme, bom massal, dll</td><td>150.000</td><td>Jail 200 menit / ban</td></tr>
         </tbody>
     </table>
 </body>
 </html>
+
+
+
+
+# ATURAN FIX PENEGAKAN HUKUM TANPA SIDANG GTA ROLEPLAY (SAMP)
+
+---
+
+## 1. Prinsip Umum
+- Semua pelanggaran hukum diproses **tanpa persidangan** (baik IC/OOC); penegakan bersifat administratif.
+- Penegakan wajib **adil, transparan, dan berbasis bukti**.
+- Seluruh pemain dan aparat tunduk pada aturan ini.
+
+---
+
+## 2. Dasar Penjatuhan Sanksi
+- **Sanksi hanya dapat dijatuhkan jika ada bukti yang jelas**:
+  - Screenshot, video, chat log, log server, bukti saksi RP, atau **tertangkap mata** oleh aparat.
+- **Laporan korban tanpa bukti lain** hanya cukup untuk sanksi ringan (warning, jail singkat, denda kecil), **tidak untuk sanksi berat** (ban, jail lama, denda besar).
+- **Tertangkap mata oleh aparat** diakui sebagai bukti sah untuk penindakan langsung. Aparat wajib mencatat kronologi dan, jika mungkin, menambah bukti pendukung (screenshot/log).
+- Jika tidak ada bukti, **aparat wajib tidak menindak**.
+
+---
+
+## 3. Kumulasi & Prioritas Pasal
+- Jika satu pemain melanggar beberapa pasal (umum dan/atau khusus) dari **perbuatan berbeda**, **semua pasal dapat dijatuhkan secara kumulatif** (concursus realis).
+- Jika satu perbuatan memenuhi unsur dua pasal (umum & khusus), **pasal khusus yang digunakan** (**lex specialis derogat legi generali**).
+
+---
+
+## 4. SOP Penindakan
+
+1. **Penemuan atau Pelaporan**
+   - Pelanggaran ditemukan oleh aparat atau dilaporkan korban.
+2. **Pengumpulan Bukti**
+   - Admin mengumpulkan bukti: screenshot, video, chat log, saksi, sistem log, atau tertangkap mata.
+   - Jika hanya ada laporan korban, lakukan klarifikasi ke suspect. Jika suspect tidak bisa membela diri, sanksi ringan boleh dijatuhkan.
+   - Jika tidak ada bukti sama sekali, **tidak boleh ada penindakan**.
+3. **Penjatuhan Sanksi**
+   - Sanksi dijatuhkan sesuai pasal & bukti yang ada.
+   - Jika tertangkap mata oleh aparat, penindakan boleh langsung dilakukan dengan pencatatan kronologi.
+4. **Dokumentasi**
+   - Semua penindakan wajib dicatat (nama pelaku, waktu, pasal, bukti, penindak).
+5. **Hak Banding**
+   - Suspect diberi waktu **maksimal 1x24 jam** untuk banding ke admin/staff berbeda. Banding diproses dan hasilnya final.
+
+---
+
+## 5. Standar Bukti
+
+| Jenis Bukti                 | Sanksi Ringan (Warning, Jail < 30m, Denda Kecil) | Sanksi Berat (Ban, Jail > 30m, Denda Besar) |
+|-----------------------------|:------------------------------------------------:|:--------------------------------------------:|
+| Laporan korban              |          YA, wajib klarifikasi suspect           |                     TIDAK                    |
+| Bukti foto/video/log        |                        YA                        |                     YA                       |
+| Tertangkap mata aparat      |                        YA                        |                     YA                       |
+| Tidak ada bukti             |                       TIDAK                      |                    TIDAK                     |
+
+---
+
+## 6. Hak & Prosedur Banding
+- Setiap pelaku **berhak mengajukan banding/keberatan** maksimal 1x24 jam setelah sanksi dijatuhkan.
+- Banding diproses oleh admin/staff berbeda dari penindak, wajib transparan dan bisa diaudit.
+- Jika banding diterima (bukti kurang/keliru), sanksi dicabut/dikurangi.
+
+---
+
+## 7. Transparansi, Audit, & Sanksi Internal
+- Semua log penindakan dan hasil banding harus bisa diaudit oleh staff/server owner.
+- Aparat yang menindak tanpa bukti dapat diberi sanksi internal (peringatan, pencabutan jabatan).
+- Laporan palsu oleh korban dapat dikenai sanksi administratif.
+
+---
+
+## 8. Asas Hukum yang Dipegang
+- **Equality before the law:** Semua diperlakukan sama.
+- **Asas legalitas:** Hanya pasal yang diatur yang dapat dijatuhkan.
+- **In dubio pro reo:** Jika ragu, suspect diuntungkan.
+- **Geen straf zonder schuld:** Tidak ada sanksi tanpa kesalahan yang jelas.
+- **Hak membela diri:** Suspect selalu punya hak klarifikasi dan banding.
+
+---
+
+## 9. Contoh Tabel Penerapan Pasal Kumulatif
+
+| No | Nama Suspect   | Perbuatan                         | Pasal yang Dikenakan        | Jenis UU   | Sanksi (RP)                      |
+|----|---------------|-----------------------------------|-----------------------------|------------|-----------------------------------|
+| 1  | John Doe      | Menipu warga                      | Pasal 378 KUHP              | Umum       | Jail 20 menit + Denda $2.000      |
+|    |               | Membawa senjata api ilegal         | Pasal 1 ayat (1) UU Darurat | Khusus     | Jail 40 menit + Denda $8.000      |
+|    |               |                                   | **Keduanya dijalankan**     |            | Jail 60m + Denda $10.000          |
+| 2  | Jane Smith    | Mengedarkan narkotika             | Pasal 114 UU Narkotika      | Khusus     | Jail 50 menit + Denda $12.000     |
+|    |               | Melanggar lampu merah             | Pasal 287 UU LLAJ           | Umum       | Denda $1.000                      |
+|    |               |                                   | **Keduanya dijalankan**     |            | Jail 50m + Denda $13.000          |
+
+---
+
+## 10. SOP Penindakan Tanpa Bukti
+
+```
+1. Aparat menerima laporan atau menemukan dugaan pelanggaran.
+2. Aparat wajib mencari/memastikan bukti (foto, video, log, saksi, tertangkap mata).
+3. Jika bukti tidak ada, penindakan dilarang.
+4. Jika hanya laporan korban, klarifikasi ke suspect. Jika suspect tidak bisa membela diri, sanksi ringan boleh dijatuhkan.
+5. Semua penindakan dicatat & suspect diberi hak banding.
+```
+
+---
+
+## 11. SOP Penindakan Jika Tertangkap Mata
+
+```
+1. Aparat menyaksikan langsung pelanggaran.
+2. Aparat langsung menindak sesuai SOP (penangkapan, jail, denda).
+3. Kronologi wajib dicatat (log admin/Discord/server).
+4. Suspect tetap punya hak klarifikasi dan banding.
+```
+
+---
+
+## 12. Contoh Aturan Tertulis Penindakan Tanpa Bukti
+
+```
+1. Penjatuhan sanksi hanya boleh dilakukan jika ada bukti sah (foto, video, log, saksi, tertangkap mata).
+2. Jika tidak ada bukti, penindakan dilarang.
+3. Laporan korban tanpa bukti lain hanya cukup untuk sanksi ringan dengan hak klarifikasi suspect.
+4. Aparat yang menindak tanpa bukti dapat dikenai sanksi internal.
+```
+
+---
+
+**Aturan ini wajib ditaati oleh seluruh aparat dan pemain. Pelanggaran terhadap aturan ini dapat dikenakan sanksi internal maupun administratif.**
