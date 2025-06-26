@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Klasifikasi Pasal GTA RP Lengkap (Kategori & Kode)</title>
+    <title>Klasifikasi Pasal GTA RP (Undang-Undang Nomor & Tahun)</title>
     <style>
         body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px;}
         h2 { margin-top: 40px; }
@@ -18,11 +18,28 @@
         .peperangan th { background-color: #455a64; }
         .tipikor th { background-color: #e65100; }
         .terorisme th { background-color: #263238; }
+        #download {
+            background: #0074c2;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-bottom: 24px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #download:hover {
+            background: #005a97;
+        }
     </style>
 </head>
 <body>
+    <button id="download">Download Semua Tabel</button>
+
+    <div id="tabel-pasal">
     <!-- 1. Lalu Lintas -->
-    <h2>1. Pelanggaran Lalu Lintas (UU LLAJ)</h2>
+    <h2>UNDANG-UNDANG NOMOR 1 TAHUN 2025 TENTANG LALU LINTAS DAN ANGKUTAN JALAN</h2>
     <table class="llaj">
         <thead>
             <tr>
@@ -53,8 +70,7 @@
         </tbody>
     </table>
 
-    <!-- 2. Sosial/Umum -->
-    <h2>2. Pelanggaran Sosial dan Ketertiban Umum (KUHP)</h2>
+    <h2>UNDANG-UNDANG NOMOR 2 TAHUN 2025 TENTANG TINDAK PIDANA SOSIAL DAN KETERTIBAN UMUM</h2>
     <table class="pidana">
         <thead>
             <tr>
@@ -84,8 +100,7 @@
         </tbody>
     </table>
 
-    <!-- 3. Properti, Kekerasan, Pembegalan -->
-    <h2>3. Tindak Pidana Properti, Kekerasan, & Pembegalan</h2>
+    <h2>UNDANG-UNDANG NOMOR 3 TAHUN 2025 TENTANG TINDAK PIDANA PROPERTI, KEKERASAN, DAN PEMBEGALAN</h2>
     <table class="properti">
         <thead>
             <tr>
@@ -105,8 +120,7 @@
         </tbody>
     </table>
 
-    <!-- 4. UU Khusus (Narkotika, Carsteal, dll) -->
-    <h2>4. UU Khusus (Narkotika, Carsteal, Dll)</h2>
+    <h2>UNDANG-UNDANG NOMOR 4 TAHUN 2025 TENTANG TINDAK PIDANA KHUSUS (NARKOTIKA, CARSTEAL, DLL)</h2>
     <table class="khusus">
         <thead>
             <tr>
@@ -117,12 +131,10 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Narkotika -->
             <tr><td>D1</td><td>Kepemilikan narkoba</td><td>10.000</td><td>Jail 30 menit</td></tr>
             <tr><td>D2</td><td>Pengedaran narkoba</td><td>15.000</td><td>Jail 45 menit</td></tr>
             <tr><td>D3</td><td>Produksi narkoba</td><td>15.000</td><td>Jail 45 menit</td></tr>
             <tr><td>D4</td><td>Kepemilikan &gt;500 narkoba</td><td>60.000</td><td>Jail 120 menit</td></tr>
-            <!-- Carsteal/Carstell -->
             <tr><td>CS1</td><td>Penipuan jual beli kendaraan (carsteal/carstell)</td><td>15.000</td><td>Jail 40 menit, pengembalian kendaraan/dana ke korban</td></tr>
             <tr><td>CS2</td><td>Pemalsuan surat kendaraan</td><td>10.000</td><td>Jail 30 menit, penyitaan kendaraan</td></tr>
             <tr><td>CS3</td><td>Jual beli kendaraan tanpa hak (bukan pemilik sah)</td><td>12.000</td><td>Jail 35 menit, penyitaan kendaraan</td></tr>
@@ -130,8 +142,7 @@
         </tbody>
     </table>
 
-    <!-- 5. Senjata Api & Amunisi Ilegal -->
-    <h2>5. Senjata Api & Amunisi Ilegal (UU Darurat)</h2>
+    <h2>UNDANG-UNDANG NOMOR 5 TAHUN 2025 TENTANG SENJATA API DAN AMUNISI ILEGAL</h2>
     <table class="darurat">
         <thead>
             <tr>
@@ -152,8 +163,7 @@
         </tbody>
     </table>
 
-    <!-- 6. Penembakan & Peperangan -->
-    <h2>6. Penembakan & Peperangan (UU Khusus RP)</h2>
+    <h2>UNDANG-UNDANG NOMOR 6 TAHUN 2025 TENTANG PENEMBAKAN DAN PEPERANGAN</h2>
     <table class="peperangan">
         <thead>
             <tr>
@@ -171,8 +181,7 @@
         </tbody>
     </table>
 
-    <!-- 7. Korupsi -->
-    <h2>7. Korupsi</h2>
+    <h2>UNDANG-UNDANG NOMOR 7 TAHUN 2025 TENTANG TINDAK PIDANA KORUPSI</h2>
     <table class="tipikor">
         <thead>
             <tr>
@@ -188,8 +197,7 @@
         </tbody>
     </table>
 
-    <!-- 8. Terorisme -->
-    <h2>8. Terorisme (RP/Hukuman Mati)</h2>
+    <h2>UNDANG-UNDANG NOMOR 8 TAHUN 2025 TENTANG TINDAK PIDANA TERORISME</h2>
     <table class="terorisme">
         <thead>
             <tr>
@@ -203,6 +211,23 @@
             <tr><td>H1</td><td>Terorisme, bom massal, dll</td><td>150.000</td><td>Hukuman Mati</td></tr>
         </tbody>
     </table>
+    </div>
+
+    <script>
+    document.getElementById('download').addEventListener('click', function () {
+        // Ambil seluruh HTML dari div tabel-pasal
+        var content = document.getElementById('tabel-pasal').innerHTML;
+        // Tambahkan tag HTML dasar agar file bisa dibuka sendiri
+        var htmlFile = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Klasifikasi Pasal GTA RP</title></head><body>' + content + '</body></html>';
+        var blob = new Blob([htmlFile], {type: "text/html"});
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = "klasifikasi_pasal_gta_rp.html";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+    </script>
 </body>
 </html>
 
