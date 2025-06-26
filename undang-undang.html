@@ -18,7 +18,7 @@
         .peperangan th { background-color: #455a64; }
         .tipikor th { background-color: #e65100; }
         .terorisme th { background-color: #263238; }
-        #download {
+        #download, #download-img {
             background: #0074c2;
             color: #fff;
             border: none;
@@ -28,14 +28,16 @@
             margin-bottom: 24px;
             cursor: pointer;
             transition: background 0.2s;
+            margin-right: 16px;
         }
-        #download:hover {
+        #download:hover, #download-img:hover {
             background: #005a97;
         }
     </style>
 </head>
 <body>
     <button id="download">Download Semua Tabel</button>
+    <button id="download-img">Download Semua Tabel (Gambar)</button>
 
     <div id="tabel-pasal">
     <!-- 1. Lalu Lintas -->
@@ -226,6 +228,19 @@
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+    });
+
+     // Download as Image
+    document.getElementById('download-img').addEventListener('click', function () {
+        var tabel = document.getElementById('tabel-pasal');
+        html2canvas(tabel, {scale: 2, useCORS: true}).then(function(canvas) {
+            var link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = 'UUKKRPREVISI.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
     });
     </script>
 </body>
