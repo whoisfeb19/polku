@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Klasifikasi Pasal GTA RP (Kategori & Kode)</title>
+    <title>Klasifikasi Pasal GTA RP Lengkap (Kategori & Kode)</title>
     <style>
         body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px;}
         h2 { margin-top: 40px; }
@@ -13,10 +13,9 @@
         .llaj th { background-color: #0074c2; }
         .pidana th { background-color: #388e3c; }
         .properti th { background-color: #ffa000; }
-        .narkotika th { background-color: #7b1fa2; }
+        .khusus th { background-color: #2196f3; }
         .darurat th { background-color: #b71c1c; }
         .peperangan th { background-color: #455a64; }
-        .carstell th { background-color: #8e24aa; }
         .tipikor th { background-color: #e65100; }
         .terorisme th { background-color: #263238; }
     </style>
@@ -106,9 +105,9 @@
         </tbody>
     </table>
 
-    <!-- 4. Narkotika -->
-    <h2>4. Narkotika (UU No. 35/2009)</h2>
-    <table class="narkotika">
+    <!-- 4. UU Khusus (Narkotika, Carsteal, dll) -->
+    <h2>4. UU Khusus (Narkotika, Carsteal, Dll)</h2>
+    <table class="khusus">
         <thead>
             <tr>
                 <th>Kode</th>
@@ -118,10 +117,16 @@
             </tr>
         </thead>
         <tbody>
+            <!-- Narkotika -->
             <tr><td>D1</td><td>Kepemilikan narkoba</td><td>10.000</td><td>Jail 30 menit</td></tr>
             <tr><td>D2</td><td>Pengedaran narkoba</td><td>15.000</td><td>Jail 45 menit</td></tr>
             <tr><td>D3</td><td>Produksi narkoba</td><td>15.000</td><td>Jail 45 menit</td></tr>
-            <tr><td>D4</td><td>Kepemilikan >500 narkoba</td><td>60.000</td><td>Jail 120 menit</td></tr>
+            <tr><td>D4</td><td>Kepemilikan &gt;500 narkoba</td><td>60.000</td><td>Jail 120 menit</td></tr>
+            <!-- Carsteal/Carstell -->
+            <tr><td>CS1</td><td>Penipuan jual beli kendaraan (carsteal/carstell)</td><td>15.000</td><td>Jail 40 menit, pengembalian kendaraan/dana ke korban</td></tr>
+            <tr><td>CS2</td><td>Pemalsuan surat kendaraan</td><td>10.000</td><td>Jail 30 menit, penyitaan kendaraan</td></tr>
+            <tr><td>CS3</td><td>Jual beli kendaraan tanpa hak (bukan pemilik sah)</td><td>12.000</td><td>Jail 35 menit, penyitaan kendaraan</td></tr>
+            <tr><td>CS4</td><td>Pencurian kendaraan import (carsteal import)</td><td>25.000</td><td>Jail 70 menit, penyitaan kendaraan import & pengembalian ke korban</td></tr>
         </tbody>
     </table>
 
@@ -143,7 +148,7 @@
             <tr><td>E4</td><td>Pengedaran senjata ilegal</td><td>25.000</td><td>Jail 55 menit</td></tr>
             <tr><td>E5</td><td>Produksi senjata ilegal</td><td>30.000</td><td>Jail 60 menit</td></tr>
             <tr><td>E6</td><td>Kepemilikan amunisi 1-50 clip</td><td>8.000</td><td>Jail 40 menit</td></tr>
-            <tr><td>E7</td><td>Kepemilikan amunisi >200 clip</td><td>30.000</td><td>Jail 60 menit</td></tr>
+            <tr><td>E7</td><td>Kepemilikan amunisi &gt;200 clip</td><td>30.000</td><td>Jail 60 menit</td></tr>
         </tbody>
     </table>
 
@@ -166,26 +171,8 @@
         </tbody>
     </table>
 
-    <!-- 7. Carstell -->
-    <h2>7. Carstell (Penipuan/Curang Jual Beli Kendaraan)</h2>
-    <table class="carstell">
-        <thead>
-            <tr>
-                <th>Kode</th>
-                <th>Jenis Pelanggaran</th>
-                <th>Denda</th>
-                <th>Hukuman</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>CS1</td><td>Penipuan jual beli kendaraan (carstell)</td><td>15.000</td><td>Jail 40 menit, pengembalian kendaraan/dana ke korban</td></tr>
-            <tr><td>CS2</td><td>Pemalsuan surat kendaraan</td><td>10.000</td><td>Jail 30 menit, penyitaan kendaraan</td></tr>
-            <tr><td>CS3</td><td>Jual beli kendaraan tanpa hak (bukan pemilik sah)</td><td>12.000</td><td>Jail 35 menit, penyitaan kendaraan</td></tr>
-        </tbody>
-    </table>
-
-    <!-- 8. Korupsi -->
-    <h2>8. Korupsi</h2>
+    <!-- 7. Korupsi -->
+    <h2>7. Korupsi</h2>
     <table class="tipikor">
         <thead>
             <tr>
@@ -201,8 +188,8 @@
         </tbody>
     </table>
 
-    <!-- 9. Terorisme -->
-    <h2>9. Terorisme (RP/Banned Case)</h2>
+    <!-- 8. Terorisme -->
+    <h2>8. Terorisme (RP/Hukuman Mati)</h2>
     <table class="terorisme">
         <thead>
             <tr>
@@ -213,7 +200,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>H1</td><td>Terorisme, bom massal, dll</td><td>150.000</td><td>Jail 200 menit / ban</td></tr>
+            <tr><td>H1</td><td>Terorisme, bom massal, dll</td><td>150.000</td><td>Hukuman Mati</td></tr>
         </tbody>
     </table>
 </body>
