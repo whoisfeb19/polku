@@ -2,120 +2,156 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Tabel Undang-Undang Terpadu</title>
+    <title>Gabungan Tabel Undang-Undang</title>
     <style>
         body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px;}
-        table { border-collapse: collapse; width: 100%; background: #fff; }
-        th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
-        th { background-color: #0074c2; color: #fff; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .kategori-llaj { background-color: #e3f1fa; }
-        .kategori-umum { background-color: #e9fbe3; }
-        .kategori-khusus { background-color: #f8f8e7; }
-        .kategori-berat { background-color: #fae3e3; }
+        h2 { margin-top: 40px; }
+        table { border-collapse: collapse; width: 100%; background: #fff; margin-bottom: 40px; }
+        th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left;}
+        th { color: #fff;}
+        tr:nth-child(even) { background-color: #f2f2f2;}
+        /* Judul sesuai jenis UU */
+        #llaj th { background-color: #0074c2; }
+        #umum th { background-color: #388e3c; }
+        #khusus th { background-color: #e0bc00; }
+        #berat th { background-color: #b71c1c; }
     </style>
 </head>
 <body>
-    <h2>Tabel Undang-Undang Terpadu</h2>
-    <table>
+    <h2>Undang-Undang Lalu Lintas dan Angkutan Jalan (LLAJ)</h2>
+    <table id="llaj">
         <thead>
             <tr>
                 <th>Kode Pasal</th>
-                <th>Kategori</th>
                 <th>Jenis Pelanggaran</th>
                 <th>Denda</th>
                 <th>Hukuman</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Lalu Lintas (A) -->
-            <tr class="kategori-llaj"><td>A1</td><td>Lalu Lintas</td><td>Mengemudi kendaraan bermotor tanpa helm</td><td>1.000</td><td>Penilangan</td></tr>
-            <tr class="kategori-llaj"><td>A2</td><td>Lalu Lintas</td><td>Tidak memiliki SIM</td><td>1.000</td><td>Penilangan</td></tr>
-            <tr class="kategori-llaj"><td>A3</td><td>Lalu Lintas</td><td>Kendaraan tidak memiliki plate</td><td>1.000</td><td>Penilangan</td></tr>
-            <tr class="kategori-llaj"><td>A4</td><td>Lalu Lintas</td><td>Parkir sembarangan</td><td>1.500</td><td>Impound 1 hari</td></tr>
-            <tr class="kategori-llaj"><td>A5</td><td>Lalu Lintas</td><td>Kendaraan berada di zona terlarang/ilegal</td><td>1.500</td><td>Impound 1 hari</td></tr>
-            <tr class="kategori-llaj"><td>A6</td><td>Lalu Lintas</td><td>Tidak membayar tol</td><td>2.000</td><td>Impound 3 hari</td></tr>
-            <tr class="kategori-llaj"><td>A7</td><td>Lalu Lintas</td><td>Melawan arus jalan</td><td>2.000</td><td>Impound 2 hari</td></tr>
-            <tr class="kategori-llaj"><td>A8</td><td>Lalu Lintas</td><td>Berkendara melebihi batas kecepatan</td><td>2.000</td><td>Impound 2 hari</td></tr>
-            <tr class="kategori-llaj"><td>A9</td><td>Lalu Lintas</td><td>Berkendara ugal-ugalan</td><td>2.000</td><td>Impound 2 hari</td></tr>
-            <tr class="kategori-llaj"><td>A10</td><td>Lalu Lintas</td><td>Melarikan diri saat razia</td><td>2.500</td><td>Impound 3 hari</td></tr>
-            <tr class="kategori-llaj"><td>A11</td><td>Lalu Lintas</td><td>Terlibat dalam balapan liar</td><td>2.500</td><td>Penjara 10 bulan</td></tr>
-            <tr class="kategori-llaj"><td>A12</td><td>Lalu Lintas</td><td>Kendaraan truck masuk area keramaian</td><td>2.500</td><td>Impound 3 hari</td></tr>
-            <tr class="kategori-llaj"><td>A13</td><td>Lalu Lintas</td><td>Kendaraan berada di TKP peperangan</td><td>3.000</td><td>Impound 4 hari</td></tr>
-            <tr class="kategori-llaj"><td>A14</td><td>Lalu Lintas</td><td>Terdapat barang ilegal pada kendaraan</td><td>3.000</td><td>Impound 4 hari</td></tr>
-            <tr class="kategori-llaj"><td>A15</td><td>Lalu Lintas</td><td>Terdapat senjata pada kendaraan</td><td>3.500</td><td>Impound 7 hari</td></tr>
-            <tr class="kategori-llaj"><td>A16</td><td>Lalu Lintas</td><td>Menghambat arus lalu lintas</td><td>4.000</td><td>Impound 5 hari</td></tr>
-            <tr class="kategori-llaj"><td>A17</td><td>Lalu Lintas</td><td>Menghambat jalannya kendaraan prioritas</td><td>4.500</td><td>Impound 5 hari</td></tr>
+            <tr><td>A1</td><td>Mengemudi kendaraan bermotor tanpa helm</td><td>1.000</td><td>Penilangan</td></tr>
+            <tr><td>A2</td><td>Tidak memiliki SIM</td><td>1.000</td><td>Penilangan</td></tr>
+            <tr><td>A3</td><td>Kendaraan tidak memiliki plate</td><td>1.000</td><td>Penilangan</td></tr>
+            <tr><td>A4</td><td>Parkir sembarangan</td><td>1.500</td><td>Impound 1 hari</td></tr>
+            <tr><td>A5</td><td>Kendaraan berada di zona terlarang/ilegal</td><td>1.500</td><td>Impound 1 hari</td></tr>
+            <tr><td>A6</td><td>Tidak membayar tol</td><td>2.000</td><td>Impound 3 hari</td></tr>
+            <tr><td>A7</td><td>Melawan arus jalan</td><td>2.000</td><td>Impound 2 hari</td></tr>
+            <tr><td>A8</td><td>Berkendara melebihi batas kecepatan</td><td>2.000</td><td>Impound 2 hari</td></tr>
+            <tr><td>A9</td><td>Berkendara ugal-ugalan</td><td>2.000</td><td>Impound 2 hari</td></tr>
+            <tr><td>A10</td><td>Melarikan diri saat razia</td><td>2.500</td><td>Impound 3 hari</td></tr>
+            <tr><td>A11</td><td>Terlibat dalam balapan liar</td><td>2.500</td><td>Penjara 10 bulan</td></tr>
+            <tr><td>A12</td><td>Kendaraan truck masuk area keramaian</td><td>2.500</td><td>Impound 3 hari</td></tr>
+            <tr><td>A13</td><td>Kendaraan berada di TKP peperangan</td><td>3.000</td><td>Impound 4 hari</td></tr>
+            <tr><td>A14</td><td>Terdapat barang ilegal pada kendaraan</td><td>3.000</td><td>Impound 4 hari</td></tr>
+            <tr><td>A15</td><td>Terdapat senjata pada kendaraan</td><td>3.500</td><td>Impound 7 hari</td></tr>
+            <tr><td>A16</td><td>Menghambat arus lalu lintas</td><td>4.000</td><td>Impound 5 hari</td></tr>
+            <tr><td>A17</td><td>Menghambat jalannya kendaraan prioritas</td><td>4.500</td><td>Impound 5 hari</td></tr>
+        </tbody>
+    </table>
 
-            <!-- Umum (B) -->
-            <tr class="kategori-umum"><td>B1</td><td>Umum</td><td>Tidak memiliki kartu identitas/KTP</td><td>1.500</td><td>Sanksi Sosial</td></tr>
-            <tr class="kategori-umum"><td>B2</td><td>Umum</td><td>Menyalahgunakan panggilan hotline</td><td>2.500</td><td>Sanksi Sosial</td></tr>
-            <tr class="kategori-umum"><td>B3</td><td>Umum</td><td>Merusak fasilitas umum</td><td>3.000</td><td>5</td></tr>
-            <tr class="kategori-umum"><td>B4</td><td>Umum</td><td>Membuat keributan di tempat umum</td><td>3.500</td><td>6</td></tr>
-            <tr class="kategori-umum"><td>B5</td><td>Umum</td><td>Pencemaran nama baik warga</td><td>3.500</td><td>7</td></tr>
-            <tr class="kategori-umum"><td>B6</td><td>Umum</td><td>Pencemaran nama baik instansi</td><td>5.000</td><td>10</td></tr>
-            <tr class="kategori-umum"><td>B7</td><td>Umum</td><td>Melakukan kekerasan fisik terhadap warga</td><td>4.000</td><td>5</td></tr>
-            <tr class="kategori-umum"><td>B8</td><td>Umum</td><td>Melakukan penipuan terhadap warga</td><td>4.500</td><td>6</td></tr>
-            <tr class="kategori-umum"><td>B9</td><td>Umum</td><td>Melakukan pelecehan seksual terhadap warga</td><td>4.500</td><td>6</td></tr>
-            <tr class="kategori-umum"><td>B10</td><td>Umum</td><td>Merusak/merebut aset pribadi milik warga</td><td>5.000</td><td>6</td></tr>
-            <tr class="kategori-umum"><td>B11</td><td>Umum</td><td>Penghinaan terhadap baik instansi</td><td>5.000</td><td>10</td></tr>
-            <tr class="kategori-umum"><td>B12</td><td>Umum</td><td>Pemberian informasi palsu</td><td>5.500</td><td>7</td></tr>
-            <tr class="kategori-umum"><td>B13</td><td>Umum</td><td>Memberikan laporan palsu ke kepolisian</td><td>5.500</td><td>7</td></tr>
-            <tr class="kategori-umum"><td>B14</td><td>Umum</td><td>Membawa senjata tajam/tumpul di tempat umum</td><td>5.500</td><td>9</td></tr>
-            <tr class="kategori-umum"><td>B15</td><td>Umum</td><td>Kabur saat di berhentikan</td><td>7.000</td><td>10</td></tr>
-            <tr class="kategori-umum"><td>B16</td><td>Umum</td><td>Penyalahgunaan senjata tumpul</td><td>10.000</td><td>10</td></tr>
-            <tr class="kategori-umum"><td>B17</td><td>Umum</td><td>Penyalahgunaan senjata tumpul</td><td>4.500</td><td>Impound 5 hari</td></tr>
+    <h2>Undang-Undang Umum</h2>
+    <table id="umum">
+        <thead>
+            <tr>
+                <th>Kode Pasal</th>
+                <th>Jenis Pelanggaran</th>
+                <th>Denda</th>
+                <th>Hukuman</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>B1</td><td>Tidak memiliki kartu identitas/KTP</td><td>1.500</td><td>Sanksi Sosial</td></tr>
+            <tr><td>B2</td><td>Menyalahgunakan panggilan hotline</td><td>2.500</td><td>Sanksi Sosial</td></tr>
+            <tr><td>B3</td><td>Merusak fasilitas umum</td><td>3.000</td><td>5</td></tr>
+            <tr><td>B4</td><td>Membuat keributan di tempat umum</td><td>3.500</td><td>6</td></tr>
+            <tr><td>B5</td><td>Pencemaran nama baik warga</td><td>3.500</td><td>7</td></tr>
+            <tr><td>B6</td><td>Pencemaran nama baik instansi</td><td>5.000</td><td>10</td></tr>
+            <tr><td>B7</td><td>Melakukan kekerasan fisik terhadap warga</td><td>4.000</td><td>5</td></tr>
+            <tr><td>B8</td><td>Melakukan penipuan terhadap warga</td><td>4.500</td><td>6</td></tr>
+            <tr><td>B9</td><td>Melakukan pelecehan seksual terhadap warga</td><td>4.500</td><td>6</td></tr>
+            <tr><td>B10</td><td>Merusak/merebut aset pribadi milik warga</td><td>5.000</td><td>6</td></tr>
+            <tr><td>B11</td><td>Penghinaan terhadap baik instansi</td><td>5.000</td><td>10</td></tr>
+            <tr><td>B12</td><td>Pemberian informasi palsu</td><td>5.500</td><td>7</td></tr>
+            <tr><td>B13</td><td>Memberikan laporan palsu ke kepolisian</td><td>5.500</td><td>7</td></tr>
+            <tr><td>B14</td><td>Membawa senjata tajam/tumpul di tempat umum</td><td>5.500</td><td>9</td></tr>
+            <tr><td>B15</td><td>Kabur saat di berhentikan</td><td>7.000</td><td>10</td></tr>
+            <tr><td>B16</td><td>Penyalahgunaan senjata tumpul</td><td>10.000</td><td>10</td></tr>
+            <tr><td>B17</td><td>Penyalahgunaan senjata tumpul</td><td>4.500</td><td>Impound 5 hari</td></tr>
+        </tbody>
+    </table>
 
-            <!-- Khusus (C) -->
-            <tr class="kategori-khusus"><td>C1</td><td>Khusus</td><td>Menangkap satwa yang dilindungi</td><td>4.500</td><td>10</td></tr>
-            <tr class="kategori-khusus"><td>C2</td><td>Khusus</td><td>Berada di zona ilegal</td><td>4.500</td><td>10</td></tr>
-            <tr class="kategori-khusus"><td>C3</td><td>Khusus</td><td>Mencuri/merusak kendaraan orang lain</td><td>4.500</td><td>15</td></tr>
-            <tr class="kategori-khusus"><td>C4</td><td>Khusus</td><td>Penyalahgunaan senjata tajam/tumpul</td><td>4.500</td><td>15</td></tr>
-            <tr class="kategori-khusus"><td>C5</td><td>Khusus</td><td>Menggunakan atribut polisi/modifikasi kendaraan</td><td>5.000</td><td>15</td></tr>
-            <tr class="kategori-khusus"><td>C6</td><td>Khusus</td><td>Melakukan pemburuan ilegal</td><td>5.000</td><td>15</td></tr>
-            <tr class="kategori-khusus"><td>C7</td><td>Khusus</td><td>Kepemilikan uang merah</td><td>5.000</td><td>15</td></tr>
-            <tr class="kategori-khusus"><td>C8</td><td>Khusus</td><td>Melakukan judi casino</td><td>5.000</td><td>15</td></tr>
-            <tr class="kategori-khusus"><td>C9</td><td>Khusus</td><td>Ketahuan jual beli chip judi ilegal</td><td>5.000</td><td>20</td></tr>
-            <tr class="kategori-khusus"><td>C10</td><td>Khusus</td><td>Memiliki barang ilegal lainnya</td><td>5.000</td><td>20</td></tr>
-            <tr class="kategori-khusus"><td>C11</td><td>Khusus</td><td>Kepemilikan barang illegal mentah</td><td>5.000</td><td>25</td></tr>
-            <tr class="kategori-khusus"><td>C12</td><td>Khusus</td><td>Kepemilikan obat-obatan terlarang</td><td>5.000</td><td>30</td></tr>
-            <tr class="kategori-khusus"><td>C13</td><td>Khusus</td><td>Pengedaran obat-obatan terlarang</td><td>6.000</td><td>35</td></tr>
-            <tr class="kategori-khusus"><td>C14</td><td>Khusus</td><td>Menanam/mencabut kanabis</td><td>6.000</td><td>35</td></tr>
-            <tr class="kategori-khusus"><td>C15</td><td>Khusus</td><td>Produksi obat-obatan terlarang</td><td>6.000</td><td>35</td></tr>
-            <tr class="kategori-khusus"><td>C16</td><td>Khusus</td><td>Membeli senjata uang merah di blackmarket</td><td>6.500</td><td>40</td></tr>
-            <tr class="kategori-khusus"><td>C17</td><td>Khusus</td><td>Upaya menghilangkan barang bukti</td><td>6.500</td><td>40</td></tr>
-            <tr class="kategori-khusus"><td>C18</td><td>Khusus</td><td>Terlibat miras ilegal</td><td>7.000</td><td>40</td></tr>
-            <tr class="kategori-khusus"><td>C19</td><td>Khusus</td><td>Melindungi/menyembunyikan pelaku kriminal</td><td>7.000</td><td>40</td></tr>
-            <tr class="kategori-khusus"><td>C20</td><td>Khusus</td><td>Melakukan pemalakan terhadap warga</td><td>7.000</td><td>35</td></tr>
-            <tr class="kategori-khusus"><td>C21</td><td>Khusus</td><td>Kepemilikan 1-10 clip amunisi senjata</td><td>7.500</td><td>40</td></tr>
-            <tr class="kategori-khusus"><td>C22</td><td>Khusus</td><td>Kepemilikan 11-50 clip amunisi senjata</td><td>8.000</td><td>45</td></tr>
-            <tr class="kategori-khusus"><td>C23</td><td>Khusus</td><td>Kepemilikan 51-200 clip amunisi senjata</td><td>9.000</td><td>50</td></tr>
-            <tr class="kategori-khusus"><td>C24</td><td>Khusus</td><td>Melakukan penculikan terhadap warga</td><td>10.000</td><td>45</td></tr>
-            <tr class="kategori-khusus"><td>C25</td><td>Khusus</td><td>Melakukan penembakan terhadap warga</td><td>10.000</td><td>50</td></tr>
-            <tr class="kategori-khusus"><td>C26</td><td>Khusus</td><td>Melakukan penembakan terhadap instansi</td><td>10.000</td><td>55</td></tr>
-            <tr class="kategori-khusus"><td>C27</td><td>Khusus</td><td>Kepemilikan senjata ilegal ringan</td><td>15.000</td><td>55</td></tr>
-            <tr class="kategori-khusus"><td>C28</td><td>Khusus</td><td>Kepemilikan senjata ilegal sedang</td><td>20.000</td><td>60</td></tr>
-            <tr class="kategori-khusus"><td>C29</td><td>Khusus</td><td>Kepemilikan senjata ilegal berat</td><td>25.000</td><td>65</td></tr>
-            <tr class="kategori-khusus"><td>C30</td><td>Khusus</td><td>Melakukan perampokan warung</td><td>30.000</td><td>65</td></tr>
-            <tr class="kategori-khusus"><td>C31</td><td>Khusus</td><td>Melakukan perampokan bank</td><td>35.000</td><td>65</td></tr>
+    <h2>Undang-Undang Khusus</h2>
+    <table id="khusus">
+        <thead>
+            <tr>
+                <th>Kode Pasal</th>
+                <th>Jenis Pelanggaran</th>
+                <th>Denda</th>
+                <th>Hukuman</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>C1</td><td>Menangkap satwa yang dilindungi</td><td>4.500</td><td>10</td></tr>
+            <tr><td>C2</td><td>Berada di zona ilegal</td><td>4.500</td><td>10</td></tr>
+            <tr><td>C3</td><td>Mencuri/merusak kendaraan orang lain</td><td>4.500</td><td>15</td></tr>
+            <tr><td>C4</td><td>Penyalahgunaan senjata tajam/tumpul</td><td>4.500</td><td>15</td></tr>
+            <tr><td>C5</td><td>Menggunakan atribut polisi/modifikasi kendaraan</td><td>5.000</td><td>15</td></tr>
+            <tr><td>C6</td><td>Melakukan pemburuan ilegal</td><td>5.000</td><td>15</td></tr>
+            <tr><td>C7</td><td>Kepemilikan uang merah</td><td>5.000</td><td>15</td></tr>
+            <tr><td>C8</td><td>Melakukan judi casino</td><td>5.000</td><td>15</td></tr>
+            <tr><td>C9</td><td>Ketahuan jual beli chip judi ilegal</td><td>5.000</td><td>20</td></tr>
+            <tr><td>C10</td><td>Memiliki barang ilegal lainnya</td><td>5.000</td><td>20</td></tr>
+            <tr><td>C11</td><td>Kepemilikan barang illegal mentah</td><td>5.000</td><td>25</td></tr>
+            <tr><td>C12</td><td>Kepemilikan obat-obatan terlarang</td><td>5.000</td><td>30</td></tr>
+            <tr><td>C13</td><td>Pengedaran obat-obatan terlarang</td><td>6.000</td><td>35</td></tr>
+            <tr><td>C14</td><td>Menanam/mencabut kanabis</td><td>6.000</td><td>35</td></tr>
+            <tr><td>C15</td><td>Produksi obat-obatan terlarang</td><td>6.000</td><td>35</td></tr>
+            <tr><td>C16</td><td>Membeli senjata uang merah di blackmarket</td><td>6.500</td><td>40</td></tr>
+            <tr><td>C17</td><td>Upaya menghilangkan barang bukti</td><td>6.500</td><td>40</td></tr>
+            <tr><td>C18</td><td>Terlibat miras ilegal</td><td>7.000</td><td>40</td></tr>
+            <tr><td>C19</td><td>Melindungi/menyembunyikan pelaku kriminal</td><td>7.000</td><td>40</td></tr>
+            <tr><td>C20</td><td>Melakukan pemalakan terhadap warga</td><td>7.000</td><td>35</td></tr>
+            <tr><td>C21</td><td>Kepemilikan 1-10 clip amunisi senjata</td><td>7.500</td><td>40</td></tr>
+            <tr><td>C22</td><td>Kepemilikan 11-50 clip amunisi senjata</td><td>8.000</td><td>45</td></tr>
+            <tr><td>C23</td><td>Kepemilikan 51-200 clip amunisi senjata</td><td>9.000</td><td>50</td></tr>
+            <tr><td>C24</td><td>Melakukan penculikan terhadap warga</td><td>10.000</td><td>45</td></tr>
+            <tr><td>C25</td><td>Melakukan penembakan terhadap warga</td><td>10.000</td><td>50</td></tr>
+            <tr><td>C26</td><td>Melakukan penembakan terhadap instansi</td><td>10.000</td><td>55</td></tr>
+            <tr><td>C27</td><td>Kepemilikan senjata ilegal ringan</td><td>15.000</td><td>55</td></tr>
+            <tr><td>C28</td><td>Kepemilikan senjata ilegal sedang</td><td>20.000</td><td>60</td></tr>
+            <tr><td>C29</td><td>Kepemilikan senjata ilegal berat</td><td>25.000</td><td>65</td></tr>
+            <tr><td>C30</td><td>Melakukan perampokan warung</td><td>30.000</td><td>65</td></tr>
+            <tr><td>C31</td><td>Melakukan perampokan bank</td><td>35.000</td><td>65</td></tr>
+        </tbody>
+    </table>
 
-            <!-- Pidana Berat (D) -->
-            <tr class="kategori-berat"><td>D1</td><td>Pidana Berat</td><td>Terlibat dalam peperangan</td><td>30.000</td><td>60</td></tr>
-            <tr class="kategori-berat"><td>D2</td><td>Pidana Berat</td><td>Memiliki 200-400 clip amunisi</td><td>30.000</td><td>60</td></tr>
-            <tr class="kategori-berat"><td>D3</td><td>Pidana Berat</td><td>Pengedaran senjata ilegal</td><td>30.000</td><td>45</td></tr>
-            <tr class="kategori-berat"><td>D4</td><td>Pidana Berat</td><td>Produksi senjata ilegal</td><td>35.000</td><td>50</td></tr>
-            <tr class="kategori-berat"><td>D5</td><td>Pidana Berat</td><td>Melakukan penculikan terhadap warga</td><td>35.000</td><td>60</td></tr>
-            <tr class="kategori-berat"><td>D6</td><td>Pidana Berat</td><td>Melakukan percobaan pembunuhan</td><td>40.000</td><td>70</td></tr>
-            <tr class="kategori-berat"><td>D7</td><td>Pidana Berat</td><td>Penyerangan terhadap warga sipil</td><td>40.000</td><td>45</td></tr>
-            <tr class="kategori-berat"><td>D8</td><td>Pidana Berat</td><td>Mengganggu proses peleburan</td><td>50.000</td><td>60</td></tr>
-            <tr class="kategori-berat"><td>D9</td><td>Pidana Berat</td><td>Penyanderaan terhadap instansi</td><td>50.000</td><td>60</td></tr>
-            <tr class="kategori-berat"><td>D10</td><td>Pidana Berat</td><td>Melakukan pembunuhan</td><td>50.000</td><td>Hukuman Mati / 120</td></tr>
-            <tr class="kategori-berat"><td>D11</td><td>Pidana Berat</td><td>Memiliki obat-obatan terlarang di atas 500</td><td>60.000</td><td>Hukuman Mati / 120</td></tr>
-            <tr class="kategori-berat"><td>D12</td><td>Pidana Berat</td><td>Memiliki clip amunisi di atas 400</td><td>100.000</td><td>Hukuman Mati / 120</td></tr>
-            <tr class="kategori-berat"><td>D13</td><td>Pidana Berat</td><td>Korupsi terhadap perusahaan swasta</td><td>Penyitaan aset</td><td>Hukuman Mati / 150</td></tr>
-            <tr class="kategori-berat"><td>D14</td><td>Pidana Berat</td><td>Korupsi anggaran pemerintah</td><td>-</td><td>Hukuman Mati</td></tr>
-            <tr class="kategori-berat"><td>D15</td><td>Pidana Berat</td><td>Memiliki catatan kriminal sebanyak 5 kali</td><td>-</td><td>Hukuman Mati / 200</td></tr>
-            <tr class="kategori-berat"><td>D16</td><td>Pidana Berat</td><td>Terorisme</td><td>150.000</td><td>Hukuman Mati / 200</td></tr>
+    <h2>Undang-Undang Pidana Berat</h2>
+    <table id="berat">
+        <thead>
+            <tr>
+                <th>Kode Pasal</th>
+                <th>Jenis Pelanggaran</th>
+                <th>Denda</th>
+                <th>Hukuman</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>D1</td><td>Terlibat dalam peperangan</td><td>30.000</td><td>60</td></tr>
+            <tr><td>D2</td><td>Memiliki 200-400 clip amunisi</td><td>30.000</td><td>60</td></tr>
+            <tr><td>D3</td><td>Pengedaran senjata ilegal</td><td>30.000</td><td>45</td></tr>
+            <tr><td>D4</td><td>Produksi senjata ilegal</td><td>35.000</td><td>50</td></tr>
+            <tr><td>D5</td><td>Melakukan penculikan terhadap warga</td><td>35.000</td><td>60</td></tr>
+            <tr><td>D6</td><td>Melakukan percobaan pembunuhan</td><td>40.000</td><td>70</td></tr>
+            <tr><td>D7</td><td>Penyerangan terhadap warga sipil</td><td>40.000</td><td>45</td></tr>
+            <tr><td>D8</td><td>Mengganggu proses peleburan</td><td>50.000</td><td>60</td></tr>
+            <tr><td>D9</td><td>Penyanderaan terhadap instansi</td><td>50.000</td><td>60</td></tr>
+            <tr><td>D10</td><td>Melakukan pembunuhan</td><td>50.000</td><td>Hukuman Mati / 120</td></tr>
+            <tr><td>D11</td><td>Memiliki obat-obatan terlarang di atas 500</td><td>60.000</td><td>Hukuman Mati / 120</td></tr>
+            <tr><td>D12</td><td>Memiliki clip amunisi di atas 400</td><td>100.000</td><td>Hukuman Mati / 120</td></tr>
+            <tr><td>D13</td><td>Korupsi terhadap perusahaan swasta</td><td>Penyitaan aset</td><td>Hukuman Mati / 150</td></tr>
+            <tr><td>D14</td><td>Korupsi anggaran pemerintah</td><td>-</td><td>Hukuman Mati</td></tr>
+            <tr><td>D15</td><td>Memiliki catatan kriminal sebanyak 5 kali</td><td>-</td><td>Hukuman Mati / 200</td></tr>
+            <tr><td>D16</td><td>Terorisme</td><td>150.000</td><td>Hukuman Mati / 200</td></tr>
         </tbody>
     </table>
 </body>
